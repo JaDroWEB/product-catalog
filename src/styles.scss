@@ -45,6 +45,26 @@ mat-card {
   }
 }
 
+@media screen and (max-width: 600px) {
+  mat-tree-node {
+    font-size: 1.1em !important;
+  }
+
+  h1 {
+    font-size: 1.2em;
+  }
+
+  h2 {
+    font-size: 1.1em;
+  }
+
+  span.currency {
+    font-size: 1em;
+    font-weight: 700;
+  }
+}
+
+
 // Custom snackbars styles
 .mat-mdc-snack-bar-container {
   --mat-mdc-snack-bar-button-color: white !important;

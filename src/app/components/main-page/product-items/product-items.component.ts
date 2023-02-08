@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject, combineLatest, map } from 'rxjs';
@@ -34,6 +34,9 @@ export class ProductItemsComponent implements OnInit {
     )
   );
 
+  @Output() sidenavToogle = new EventEmitter<boolean>();
+  @Input() innerWidth!: number;
+
   constructor(
     productService: ProductService,
     private categoryQuery: CategoryQuery,
@@ -58,5 +61,9 @@ export class ProductItemsComponent implements OnInit {
       relativeTo: this.route,
       queryParams: null
     });
+  }
+
+  toggleSidenav() {
+    this.sidenavToogle.emit(true);
   }
 }

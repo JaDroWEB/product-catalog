@@ -1,6 +1,5 @@
 div.container, mat-card-content.container {
   max-width: 1600px;
-  width: 100%;
   margin-inline: auto;
   display: flex;
   justify-content: space-between;
@@ -11,14 +10,18 @@ div.container, mat-card-content.container {
     display: flex;
     align-items: center;
 
+    button {
+      min-width: 15px;
+      padding-right: 0;
+    }
+
     mat-icon {
-      transform: scale(2);
-      margin-left: 1em;
+      transform: scale(1.2);
     }
   }
 
   & div.content {
-    width: 33%;
+    width: 100%;
 
     & img {
       width: 100%;
@@ -41,15 +44,56 @@ div.container, mat-card-content.container {
     align-items: center;
     font-weight: 700;
     border-bottom: 2px solid transparent;
-    transform: scale(1.15);
 
     & mat-icon {
       margin-left: 0.25em;
+    }
+
+    & span {
+      visibility: hidden;
+      width: 0;
     }
   }
 
   & a:hover {
     border-bottom: 2px solid white;
     cursor: pointer;
+  }
+}
+
+mat-card-content.container {
+  width: calc(100% - 32px);
+  flex-direction: column;
+}
+
+div.container {
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  mat-card-content.container {
+    flex-direction: row;
+
+    & div.content {
+      width: 33%;
+    }
+  }
+
+  div.container {
+    & div.toolbar {
+      & mat-icon {
+        transform: scale(2);
+        margin-left: 1em;
+      }
+    }
+
+    & a {
+      transform: scale(1.15);
+
+      & span {
+        visibility: visible;
+        width: auto;
+      }
+    }
   }
 }

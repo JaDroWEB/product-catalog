@@ -1,5 +1,10 @@
 <mat-toolbar>
-  <h2>{{ (activeCategoryName$ | async) || 'All Products' }}</h2>
+  <div>
+    <button *ngIf="innerWidth < 600" type="button" mat-icon-button (click)="toggleSidenav()">
+      <mat-icon fontIcon="menu"></mat-icon>
+    </button>
+    <h2>{{ (activeCategoryName$ | async) || 'All Products' }}</h2>
+  </div>
 
   <button mat-button [matMenuTriggerFor]="menu">Sort by: {{ option$ | async }}</button>
   <mat-menu #menu="matMenu">

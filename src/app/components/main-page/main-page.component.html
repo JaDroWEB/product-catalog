@@ -1,9 +1,12 @@
-<mat-drawer-container>
-  <mat-drawer mode="side" opened>
+<mat-drawer-container autosize [hasBackdrop]="innerWidth < 600">
+  <mat-drawer mode="side" #drawer [opened]="innerWidth > 600" [mode]="innerWidth < 600 ? 'over' : 'side'">
     <app-menu-items></app-menu-items>
   </mat-drawer>
 
   <mat-drawer-content>
-    <app-product-items></app-product-items>
+    <app-product-items
+      [innerWidth]="innerWidth"
+      (sidenavToogle)="drawer.toggle()"
+    ></app-product-items>
   </mat-drawer-content>
 </mat-drawer-container>
