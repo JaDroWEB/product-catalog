@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@include mat.core();
+
+$product-catalog-primary: mat.define-palette(mat.$blue-palette);
+$product-catalog-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$product-catalog-warn: mat.define-palette(mat.$red-palette);
+
+$product-catalog-theme: mat.define-light-theme((
+  color: (
+    primary: $product-catalog-primary,
+    accent: $product-catalog-accent,
+    warn: $product-catalog-warn,
+  )
+));
+
+@include mat.all-component-themes($product-catalog-theme);
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+mat-toolbar, mat-dialog-container mat-card-header {
+  background-color: mat.get-color-from-palette($product-catalog-primary, 700) !important;
+  color: white !important;
+}
+
+mat-tree-node {
+  font-size: 1.35em !important;
+  background-color: mat.get-color-from-palette(mat.$gray-palette, 200) !important;;
+}
+
+mat-tree-node.active {
+  color: mat.get-color-from-palette($product-catalog-accent, 300) !important;
+  background-color: mat.get-color-from-palette(mat.$gray-palette, 200) !important;;
+}
+
+span.currency {
+  font-size: 1.3em;
+  font-weight: 700;
+}
+
+mat-card {
+  & h1, h2 {
+    color: mat.get-color-from-palette($product-catalog-accent, 400) !important;
+  }
+}
