@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <div class="container">
+    <div class="toolbar">
+      <h1>{{ product?.name }}</h1>
+      <button mat-button (click)="edit()">
+        <mat-icon fontIcon="edit"></mat-icon>
+      </button>
+    </div>
+
+    <a (click)="back()">
+      <span>Back</span>
+      <mat-icon fontIcon="keyboard_backspace"></mat-icon>
+    </a>
+  </div>
+</mat-toolbar>
+
+<mat-card>
+  <mat-card-content class="container">
+    <div class="content">
+      <div>
+        <h2>Price</h2>
+        <span class="currency">{{ product?.price | currency }}</span>
+      </div>
+      <img [src]="product?.image" [alt]="product?.name">
+    </div>
+
+    <div class="description">
+      <h2>Product description</h2>
+      <span>{{ product?.description }}</span>
+    </div>
+  </mat-card-content>
+</mat-card>

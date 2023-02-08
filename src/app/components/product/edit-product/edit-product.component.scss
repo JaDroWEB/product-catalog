@@ -1,0 +1,15 @@
+mat-card-header {
+  color: white;
+  padding: 0 16px;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
