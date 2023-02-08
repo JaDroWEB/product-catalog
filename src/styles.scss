@@ -26,12 +26,12 @@ mat-toolbar, mat-dialog-container mat-card-header {
 
 mat-tree-node {
   font-size: 1.35em !important;
-  background-color: mat.get-color-from-palette(mat.$gray-palette, 200) !important;;
+  background-color: mat.get-color-from-palette(mat.$gray-palette, 200) !important;
 }
 
 mat-tree-node.active {
   color: mat.get-color-from-palette($product-catalog-accent, 300) !important;
-  background-color: mat.get-color-from-palette(mat.$gray-palette, 200) !important;;
+  background-color: mat.get-color-from-palette(mat.$gray-palette, 200) !important;
 }
 
 span.currency {
@@ -42,5 +42,27 @@ span.currency {
 mat-card {
   & h1, h2 {
     color: mat.get-color-from-palette($product-catalog-accent, 400) !important;
+  }
+}
+
+// Custom snackbars styles
+.mat-mdc-snack-bar-container {
+  --mat-mdc-snack-bar-button-color: white !important;
+  --mdc-snackbar-container-color: #eeeeee !important;
+
+  &.green-snackbar {
+    --mdc-snackbar-supporting-text-color: #4caf50 !important;
+
+    button {
+      background-color: #4caf50 !important;
+    }
+  }
+
+  &.red-snackbar {
+    --mdc-snackbar-supporting-text-color: #f44336 !important;
+
+    button {
+      background-color: #f44336 !important;
+    }
   }
 }

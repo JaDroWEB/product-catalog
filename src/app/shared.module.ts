@@ -9,6 +9,7 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatTreeModule } from "@angular/material/tree";
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule, MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [],
@@ -22,7 +23,8 @@ import { MatInputModule } from '@angular/material/input';
     MatTreeModule,
     MatMenuModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule
   ],
   exports: [
     MatSidenavModule,
@@ -34,8 +36,9 @@ import { MatInputModule } from '@angular/material/input';
     MatTreeModule,
     MatMenuModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [{ provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 100000 }}],
 })
 export class SharedModule { }
