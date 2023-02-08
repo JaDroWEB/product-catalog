@@ -1,0 +1,9 @@
+mat-drawer-container {
+  height: 100%;
+
+  & mat-drawer {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+  }
+}

@@ -1,0 +1,40 @@
+<mat-toolbar>
+  <h2>{{ (activeCategoryName$ | async) || 'All Products' }}</h2>
+
+  <button mat-button [matMenuTriggerFor]="menu">Sort by: {{ option$ | async }}</button>
+  <mat-menu #menu="matMenu">
+    <button (click)="option$.next('Name')" mat-menu-item>Name</button>
+    <button (click)="option$.next('Price')" mat-menu-item>Price</button>
+  </mat-menu>
+</mat-toolbar>
+
+<mat-card *ngIf="(isLoading$ | async); else content">
+  <mat-spinner></mat-spinner>
+</mat-card>
+
+<ng-template #content>
+  <section>
+    <mat-card *ngFor="let product of products$ | async">
+      <mat-card-header>
+        <div>
+          <a (click)="openDetails(product.id)"><h1>{{ product.name }}</h1></a>
+          <button mat-icon-button (click)="removeProduct(product.id)">
+            <mat-icon fontIcon="close"></mat-icon>
+          </button>
+        </div>
+      </mat-card-header>
+
+      <div>
+        <mat-card-content>
+          <picture>
+            <img [src]="product.image" [alt]="product.name">
+          </picture>
+        </mat-card-content>
+
+        <mat-card-footer>
+          <span class="currency">{{ product.price | currency }}</span>
+        </mat-card-footer>
+      </div>
+    </mat-card>
+  </section>
+</ng-template>

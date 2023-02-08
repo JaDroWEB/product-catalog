@@ -1,0 +1,30 @@
+<mat-toolbar>
+  <h1>Products</h1>
+</mat-toolbar>
+
+<section>
+  <mat-tree [dataSource]="dataSource" [treeControl]="treeControl" ar>
+    <mat-tree-node
+      *matTreeNodeDef="let node"
+      [matTreeNodePadding]="0.5 * node.level"
+      [class.active]="node.id === (activeId$ | async)"
+      (click)="selectFilter(node)"
+    >
+      <span>{{node.name}}</span>
+    </mat-tree-node>
+
+    <mat-tree-node
+      *matTreeNodeDef="let node;when: hasChild"
+      [matTreeNodePadding]="0.5 * node.level"
+      [class.active]="node.id === (activeId$ | async)"
+      (click)="selectFilter(node)"
+    >
+      <span>{{node.name}}</span>
+    </mat-tree-node>
+  </mat-tree>
+
+  <a (click)="refresh()">
+    <mat-icon fontIcon="refresh"></mat-icon>
+    <span>Refresh Data</span>
+  </a>
+</section>
