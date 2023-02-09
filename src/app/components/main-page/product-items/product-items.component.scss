@@ -24,7 +24,7 @@ mat-card {
   justify-content: space-between;
 
   & mat-card-header {
-    width: 100%;
+    width: calc(100% - 32px);
 
     & div {
       display: flex;
