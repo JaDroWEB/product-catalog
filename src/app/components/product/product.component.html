@@ -1,7 +1,7 @@
 <mat-toolbar>
   <div class="container">
     <div class="toolbar">
-      <h1>{{ product?.name }}</h1>
+      <h1>{{ (product | async)?.name }}</h1>
       <button mat-button (click)="edit()">
         <mat-icon fontIcon="edit"></mat-icon>
       </button>
@@ -19,14 +19,14 @@
     <div class="content">
       <div>
         <h2>Price</h2>
-        <span class="currency">{{ product?.price | currency }}</span>
+        <span class="currency">{{ (product | async)?.price | currency }}</span>
       </div>
-      <img [src]="product?.image" [alt]="product?.name">
+      <img [src]="(product | async)?.image" [alt]="(product | async)?.name">
     </div>
 
     <div class="description">
       <h2>Product description</h2>
-      <span>{{ product?.description }}</span>
+      <span>{{ (product | async)?.description }}</span>
     </div>
   </mat-card-content>
 </mat-card>
