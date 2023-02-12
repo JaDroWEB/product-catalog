@@ -19,7 +19,7 @@
 
 <ng-template #content>
   <section>
-    <mat-card *ngFor="let product of products$ | async">
+    <mat-card *ngFor="let product of products$ | async; trackBy: identify">
       <mat-card-header>
         <div>
           <a (click)="openDetails(product.id)"><h1>{{ product.name }}</h1></a>

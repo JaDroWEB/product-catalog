@@ -1,8 +1,9 @@
-import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject, combineLatest, map } from 'rxjs';
 import { CategoryQuery } from 'src/app/services/category/category.query';
+import { Product } from 'src/app/services/product/product';
 import { ProductQuery } from 'src/app/services/product/product.query';
 import { ProductService } from 'src/app/services/product/product.service';
 import { ProductStore } from 'src/app/services/product/product.store';
@@ -66,4 +67,8 @@ export class ProductItemsComponent implements OnInit {
   toggleSidenav() {
     this.sidenavToogle.emit(true);
   }
+
+  identify(index: number, item: Product){
+    return item.id;
+ }
 }
