@@ -16,10 +16,7 @@ export class EditProductComponent implements OnInit {
   model = new FormGroup({
     name: new FormControl<string>('', Validators.required),
     description: new FormControl<string>('', Validators.required),
-    price: new FormControl<number>(0, [
-      Validators.required,
-      Validators.pattern("^[0-9]*$")
-    ])
+    price: new FormControl<number>(0, Validators.required)
   });
 
   constructor(
